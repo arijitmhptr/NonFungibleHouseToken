@@ -62,7 +62,7 @@ This will create a linear state of type ExampleEvolvableTokenType in A's vault
 
 Get the uuid of the ExampleEvolvableTokenType from PartyA's terminal by hitting below command.
 
-    run vaultQuery contractStateType : com.template.states.ExampleEvolvableTokenType
+    run vaultQuery contractStateType : com.template.states.HouseSwapTokenState
 
 Issue tokens off the created ExampleEvolvableTokenType from PartyA s terminal to PartyB
 
