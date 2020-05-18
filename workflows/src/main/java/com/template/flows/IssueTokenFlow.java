@@ -49,16 +49,6 @@ public class IssueTokenFlow extends FlowLogic<String> {
         //mention the current holder also
         NonFungibleToken nonFungibleToken = new NonFungibleToken(issuedTokenType, getOurIdentity(), new UniqueIdentifier(), TransactionUtilitiesKt.getAttachmentIdForGenericParam(tokenPointer));
 
-
-        int tokenlist = getServiceHub().getVaultService().queryBy(NonFungibleToken.class).getStates().size();
-
-        System.out.println("State size : " + tokenlist);
-
-        if (tokenlist > 0 ){
-            return "Same Token type is already exist, hence can't be issued";
-        }
-        else
-        {
             SignedTransaction stx = subFlow(new IssueTokens(Arrays.asList(nonFungibleToken)));
             return "Issued new token " + stx.getId();
         }
