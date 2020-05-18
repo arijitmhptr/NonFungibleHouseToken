@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @BelongsToContract(com.template.contracts.HouseSwapTokenContract.class)
 public class HouseSwapTokenState extends EvolvableTokenType {
@@ -55,5 +56,15 @@ public class HouseSwapTokenState extends EvolvableTokenType {
     @Override
     public UniqueIdentifier getLinearId() {
         return this.uid;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAddress(),getFractionDigits(),getValuation(),getParticipant());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof HouseSwapTokenState;
     }
 }
